@@ -28,7 +28,7 @@ def execute(q: str = Query(..., description="User query")):
         }
 
     # --- 2️⃣ Meeting Scheduling ---
-    match = re.search(r"meeting on (\d{4}-\d{2}-\d{2}) at (\d{2}:\d{2}) in ([\w\s]+)", q_lower)
+    match = re.search(r"Schedule meeting on (\d{4}-\d{2}-\d{2}) at (\d{2}:\d{2}) in ([\w\s]+)", q_lower)
     if "schedule" in q_lower and match:
         date, time, room = match.groups()
         return {
